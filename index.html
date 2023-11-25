@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Image Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        #imageContainer {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        #gallery {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .thumbnail {
+            width: 50px;
+            height: 50px;
+            margin: 0 5px;
+            cursor: pointer;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+        }
+
+        #imageDetails {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Teddy</h1>
+
+<div id="imageContainer">
+    <img id="mainImage" src="https://tse4.mm.bing.net/th?id=OIP.I0JctAoPLuJzVPTzoLefpAHaJP&pid=Api&P=0&h=180" alt="Gallery Image">
+    <div id="gallery">
+        <img class="thumbnail" src="https://tse1.mm.bing.net/th?id=OIP.GtEueUl-z2lQs2jsvLW2swAAAA&pid=Api&P=0&h=180" alt="Thumbnail 1">
+        <img class="thumbnail" src="https://tse3.mm.bing.net/th?id=OIP.LwjclzZTeFPcBSDW26F6GAAAAA&pid=Api&P=0&h=180" alt="Thumbnail 2">
+        <img class="thumbnail" src="https://tse4.mm.bing.net/th?id=OIP.J_arulVE3hhySzeOEwOPmgHaHv&pid=Api&P=0&h=180" alt="Thumbnail 3">
+    </div>
+
+
+<script>
+    // Image gallery logic
+    var mainImage = document.getElementById('mainImage');
+    var thumbnails = document.getElementsByClassName('thumbnail');
+    
+
+    // Function to switch main image
+    function switchImage(event) {
+        var clickedImage = event.target;
+        if (clickedImage.classList.contains('thumbnail')) {
+            mainImage.src = clickedImage.src;
+            imageDetails.textContent = `Image details: ${clickedImage.alt}`;
+        }
+    }
+
+    // Add event listener to the gallery for switching images
+    document.getElementById('gallery').addEventListener('click', switchImage);
+</script>
+
+</body>
+</html>
